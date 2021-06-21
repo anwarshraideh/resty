@@ -1,6 +1,7 @@
 import React from 'react';
 import './form.scss';
 
+
 class Form extends React.Component {
 
 
@@ -29,6 +30,21 @@ class Form extends React.Component {
 
     };
 
+    handleSubmit = async e => {
+        e.preventDefault();
+        const url = e.target.url.value;
+        const method = e.target.method.value
+        this.setState({url, method});
+ 
+        let raw = await fetch(url);
+        let data  = await raw.json();
+      
+        const count = data.count;
+        const results = data.results;
+
+        this.props.handler(results, count);
+    }
+
     changeMethod = (e) => {
 
         e.preventDefault();
@@ -36,17 +52,15 @@ class Form extends React.Component {
 
     };
 
-
     render() {
         return (
 
             <main>
-                <form>
+                <form  onSubmit={this.handleSubmit}>
                     <label>URL: </label>
-                    <input type="text" name="url"
-                        onChange={this.handleUrl} required />
+                    <input type="text" name="url" id='go' />
 
-                    <button type='button' onClick={this.urlClicker} >GO!</button>
+                    <button type="submit">GO!</button>
 
                     <div id="div-buttons">
 
