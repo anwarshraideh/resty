@@ -81,8 +81,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## UML Diagram
 
-![uml](reactimg.png)
+![uml](../../reactimg.png)
 
 ## props-and-state uml
 
-![uml2](react2.png)
+![uml2](../../react2.png)
