@@ -13,9 +13,9 @@ class Form extends React.Component {
         };
     }
 
+    urlClicker = (e) => {
 
-    urlClicker = () => {
-
+        e.preventDefault();
         this.setState({
 
             url: this.state.input,
@@ -24,12 +24,14 @@ class Form extends React.Component {
 
     };
     handleUrl = (e) => {
+        e.preventDefault();
         this.setState({ input: e.target.value });
 
     };
 
     changeMethod = (e) => {
 
+        e.preventDefault();
         this.setState({ method: e.target.value });
 
     };
